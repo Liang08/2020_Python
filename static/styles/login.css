@@ -1,0 +1,48 @@
+
+
+.login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login input {
+    width: 100%;
+    max-width: 400px;
+    margin: 10px 0;
+    font-size: 20px;
+}
+
+.login input[type=submit] {
+    background-color: var(--secondary);
+    color: var(--text);
+    max-width: 180px;
+}
+
+.login input[type=submit]:hover {
+    filter: brightness(1.1);
+}
+
+@media (min-width: 767.98px) {
+    .row {
+        height: calc(100vh - 170px);
+    }
+
+    .col-md-6 {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+}
+
+.login-row {
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.error {
+    color: var(--highlight);
+}

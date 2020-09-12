@@ -1,0 +1,21 @@
+{% extends "movie/base.html" %}
+{% load static %}
+
+{% block customStyles %}
+    <link rel="stylesheet" href="{% static 'styles/index.css' %}">
+{% endblock %}
+
+{% block main %}
+    <div class="search-area">
+    <a href="#">
+    </a>
+    <form action="{% url 'search' %}" method="GET">
+        <select name="search_class">
+            <option value="Movie">影视</option>
+            <option value="Actor">演员</option>
+            <option value="Comment">影评</option>
+        </select>
+        <input placeholder="Enter Something ..." name="keyword" id="search-bar" class="search-bar">
+    </form>
+  </div>
+{% endblock %}

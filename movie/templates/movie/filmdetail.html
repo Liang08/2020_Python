@@ -1,0 +1,43 @@
+{% extends "movie/base.html" %}
+{% load static %}
+
+{% block customStyles %}
+    <link rel="stylesheet" href="{% static 'styles/post.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/posts.css' %}">
+{% endblock %}
+
+{% block main %}
+    <h2 class="post-title">{{ post.film_name }}</h2>
+    <a class="post-image">
+        <img src="{% static 'images/Photo/' %}{{ post.film_number }}{{ ".jpg" }}">
+    </a>
+    <p class="post-info">上映时间：{{ post.film_year }}</p>
+    <div class="post-content">
+        <p><strong class="post-special">简介：</strong>{{ post.film_intro }}</p>
+    </div>
+    <div class="post-comment">
+        <strong class="post-special">演员：</strong>
+    </div>
+
+    {% for a in post.actor.filter %}
+        <div class="post row">
+            <p class="col-2">
+                <a href="{% url "actor" a.actor_number %}">
+                    <img src="{% static 'images/ActorPhoto/' %}{{ a.actor_number }}{{ ".jpg" }}">
+                </a>
+            </p>
+
+            <p class="col-2">
+                <a href="{% url "actor" a.actor_number %}" class="post-title">{{ a.actor_name }}</a>
+            </p>
+        </div>
+    {% endfor %}
+    <div class="post-comment">
+        <strong class="post-special">影评：</strong>
+    </div>
+    {% for a in post.comment_set.filter %}
+        <div class="post-comment">
+            <a>{{ a.comment }}</a>
+        </div>
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,39 @@
+article {
+    padding-top: 20px;
+}
+
+.post-title {
+    text-align: center;
+}
+
+.post-image{
+    text-align: center;
+    margin: auto;
+    display: block;
+}
+
+.post-info {
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.post-info span {
+    margin: 0 10px;
+}
+
+.post-content {
+    text-indent: 2em;
+    margin: 20px 60px;
+    padding: 10px 0;
+}
+
+.post-comment {
+    text-indent: 2em;
+    margin: 20px 60px;
+    padding: 10px 0;
+}
+
+.post-special {
+    font-size: 20px;
+}

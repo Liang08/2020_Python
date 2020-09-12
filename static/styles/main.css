@@ -1,0 +1,64 @@
+html {
+    height: 100%;
+}
+
+body {
+    --primary: lavender;
+    --secondary: #85C1E9;
+    --highlight: #FFEB3B;
+    --text: black;
+    --caption: lightgrey;
+    background-color: var(--primary);
+    color: var(--text);
+    height: 100%;
+}
+
+.main-content {
+    min-height: calc(100vh - 80px);
+}
+
+a {
+    text-decoration: none;
+    color: var(--text);
+}
+
+a:hover {
+    text-decoration: underline;
+    color: var(--text);
+}
+
+input {
+    border-radius: 0 1em 1em 0;
+    border-width: 3px;
+    border-color: var(--caption);
+    color: black;
+    height: 2em;
+    padding: 0 1em;
+    outline: medium;
+    padding-bottom: 0.1em;
+}
+
+select {
+    border-radius: 1em 0 0 1em;
+    border-width: 3px;
+    border-color: var(--caption);
+    color: black;
+    padding: 0 1em;
+    outline: medium;
+    padding-bottom: 0.1em;
+}
+
+.nav-button {
+    border-radius: 20px;
+    border-width: 3px;
+    border-color: var(--caption);
+}
+
+a.button {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: auto;
+
+    text-decoration: none;
+    color: initial;
+}

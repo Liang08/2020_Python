@@ -1,0 +1,75 @@
+nav {
+    color: var(--text);
+    position: absolute;
+    background-color: var(--primary);
+    height: 90px;
+}
+
+button.color-picker {
+    align-self: center;
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    outline: none;
+    border: none;
+    margin: 0 5px;
+    transition: ease-in-out;
+    transition-duration: 0.3s;
+}
+
+button.color-picker:nth-of-type(1) {
+    margin-left: 0px;
+}
+
+.color-picker.selected, .color-picker:hover {
+    filter: brightness(1.2);
+    transform: scale(1.2);
+}
+
+#steelblue {
+    background-color: steelblue;
+}
+
+#lightseagreen {
+    background-color: lightseagreen;
+}
+
+#darkslategray{
+    background-color: darkslategray;
+}
+
+#palevioletred {
+    background-color: palevioletred;
+}
+
+.user {
+    position: absolute;
+    right: 8px;
+    margin-right: 20px;
+}
+
+.user-avatar {
+    height: 40px;
+    width: auto;
+    border-radius: 20px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: var(--text);
+}
+
+nav .search-area {
+    display: none;
+}
+
+.inline-search {
+    display: inline;
+}
+
+.inline-search nav .search-area {
+    display: inherit;
+}
+
+.hide-user nav .user {
+    display: none;
+}

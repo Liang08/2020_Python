@@ -1,0 +1,22 @@
+{% load static %}
+<nav class="navbar navbar-expand navbar-dark sticky-top">
+    <a class="navbar-brand" href="{% url 'index' %}">
+    </a>
+    <div class="navbar-nav">
+
+        <a class="button" href="http://localhost:8000/movie/">
+            <button class="nav-button" id="film_list">影视列表</button>
+        </a>
+        <a class="button" href="http://localhost:8000/movie/actor">
+            <button class="nav-button" id="actor_list">演员列表</button>
+        </a>
+        <a class="button" href="http://localhost:8000/movie/search">
+            <button class="nav-button" id="actor_list">搜索页面</button>
+        </a>
+    </div>
+    <div class="search-area">
+        <form action="{% url 'search' %}">
+            <input placeholder="Press Enter to search" name="keyword" id="search-bar" class="search-bar">
+        </form>
+    </div>
+</nav>

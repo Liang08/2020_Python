@@ -1,0 +1,53 @@
+{% extends "movie/base.html" %}
+{% load static %}
+
+{% block customStyles %}
+    <link rel="stylesheet" href="{% static 'styles/post.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/posts.css' %}">
+{% endblock %}
+
+{% block main %}
+    <h2 class="post-title">{{ post.actor_name }}</h2>
+    <a class="post-image">
+        <img src="{% static 'images/ActorPhoto/' %}{{ post.actor_number }}{{ ".jpg" }}">
+    </a>
+    <div class="post-content">
+        <p><strong class="post-special">简介：</strong>{{ post.actor_intro }}</p>
+    </div>
+
+    <div class="post-comment">
+        <strong class="post-special">参演影视：</strong>
+    </div>
+    {% for a in post.movie_set.filter %}
+        <div class="post row">
+            <p class="col-2">
+                <a href="{% url "film" a.film_number %}">
+                    <img src="{% static 'images/Photo/' %}{{ a.film_number }}{{ ".jpg" }}">
+                </a>
+            </p>
+
+            <p class="col-2">
+                <a href="{% url "film" a.film_number %}" class="post-title">{{ a.film_name }}</a>
+            </p>
+        </div>
+    {% endfor %}
+    <div class="post-comment">
+        <strong class="post-special">合作演员：</strong>
+    </div>
+    {% for a in related %}
+        <div class="post row">
+            <p class="col-2">
+                <a href="{% url "actor" a.0.actor_number %}">
+                    <img src="{% static 'images/ActorPhoto/' %}{{ a.0.actor_number }}{{ ".jpg" }}">
+                </a>
+            </p>
+
+            <p class="col-2">
+                <a href="{% url "actor" a.0.actor_number %}" class="post-title">{{ a.0.actor_name }}</a>
+            </p>
+            <p>
+                合作次数：{{ a.1 }}
+            </p>
+        </div>
+    {% endfor %}
+{% endblock %}

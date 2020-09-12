@@ -1,0 +1,67 @@
+{% extends "movie/base.html" %}
+{% load static %}
+
+{% block customStyles %}
+    <link rel="stylesheet" href="{% static 'styles/posts.css' %}">
+{% endblock %}
+
+{% block main %}
+    <h1 style="text-align: center;">影视搜索结果</h1>
+    <div class="container">
+
+        {% for post in posts %}
+            <div class="post row">
+                <p class="col-2">
+                    <a href="{% url "film" post.film_number %}">
+                        <img src="{% static 'images/Photo/' %}{{ post.film_number }}{{ ".jpg" }}">
+                    </a>
+                </p>
+                <p class="col-2">
+                    <a href="{% url "film" post.film_number %}" class="post-title">{{ post.film_name }}</a>
+                </p>
+            </div>
+        {% endfor %}
+
+        <p>With keyword {{ keyword }} in {{ type }}, Find {{ posts.paginator.count }} results in {{ cost }} s,
+            currently at page {{ posts.number }} / {{ posts.paginator.num_pages }}</p>
+
+        {% if posts %}
+            <nav aria-label="Page navigation" style="position: static;">
+                <ul class="pagination pagination-lg justify-content-center">
+                    {% if posts.has_previous %}
+                        <li class="page-item">
+                            <a class="page-link"
+                               href="?search_class=Movie&keyword={{ keyword }}&page={{ posts.previous_page_number }}"
+                               aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                    {% endif %}
+                    {% for num in page_range %}
+                        {% if num == posts.number %}
+                            <li class="page-item">
+                                <a class="page-link selected"
+                                   href="?search_class=Movie&keyword={{ keyword }}&page={{ num }}">{{ num }}</a>
+                            </li>
+                        {% else %}
+                            <li class="page-item">
+                                <a class="page-link"
+                                   href="?search_class=Movie&keyword={{ keyword }}&page={{ num }}">{{ num }}</a>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                    {% if posts.has_next %}
+                        <li class="page-item">
+                            <a class="page-link" href="?keyword={{ keyword }}&page={{ posts.next_page_number }}"
+                               aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </nav>
+        {% endif %}
+    </div>
+
+
+{% endblock %}

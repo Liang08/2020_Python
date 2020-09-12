@@ -1,0 +1,50 @@
+.post {
+    display: inline-block;
+    vertical-align: top;
+    color: #37a;
+    font-size: 13px;
+    text-align: left;
+    margin-top: auto;
+    padding: 0;
+    width: 140px;
+}
+
+.col-2 {
+    padding-left: 10px;
+}
+
+.post:hover {
+    filter: brightness(1.1);
+}
+
+.post img {
+    height: auto;
+    width: 100%;
+    border-radius: 10px;
+}
+
+.post-title {
+    font-size: 24px;
+}
+
+.highlight {
+    color: var(--highlight);
+}
+
+.page-link {
+    color: var(--text);
+    background-color: transparent;
+    border: none;
+    transition: ease-in-out;
+    transition-duration: 0.2s;
+}
+
+.page-link:hover,.page-link.selected {
+    transform: scale(1.5);
+    background-color: transparent;
+    color: var(--text);
+}
+
+.container {
+    max-width: 800px;
+}

@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    {% block title %}
+      <title>Search</title>
+    {% endblock %}
+    <link href="{% static 'styles/bootstrap.min.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'styles/main.css' %}">
+    <link rel="stylesheet" href="{% static '/styles/search.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/footer.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/nav.css' %}">
+    {% block customStyles %}
+    {% endblock %}
+  </head>
+  <body>
+    <div class="main-content">
+      {% block nav %}
+        {% include 'movie/nav.html' %}
+      {% endblock %}
+      <main>
+        {% block main %}
+        {% endblock %}
+      </main>
+    </div>
+    <footer>
+      <p>&copy; 2020</p>
+    </footer>
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="{% static 'scripts/nav.js' %}"></script>
+    {% block customScripts %}
+    {% endblock %}
+  </body>
+</html>

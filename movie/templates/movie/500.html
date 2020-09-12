@@ -1,0 +1,24 @@
+{% extends "movie/base.html" %}
+{% load static %}
+
+{% block title %}
+<title>Server Error</title>
+{% endblock %}
+
+{% block customStyles %}
+  <link rel="stylesheet" href="{% static 'styles/post.css' %}">
+{% endblock %}
+
+{% block nav %}
+  <div class="inline-search">
+    {% include 'movie/nav.html' %}
+  </div>
+{% endblock %}
+
+{% block main %}
+  <div class="container">
+    <article>
+        <h1 class="post-title">服务器出错(500)</h1>
+    </article>
+  </div>
+{% endblock %}
